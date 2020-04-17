@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/example6-1_chronometer" />
             <option value="$PROJECT_DIR$/example6-1_textclock" />
+            <option value="$PROJECT_DIR$/example6-3_countdowntimer" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
