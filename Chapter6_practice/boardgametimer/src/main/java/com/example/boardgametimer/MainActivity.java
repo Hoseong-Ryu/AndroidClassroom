@@ -153,22 +153,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //타이머 리셋 메소드
-    private void resetTimer(){
+    private void resetTimer() {
         //잘못된 입력값 처리
-        if(editTextEnteredSeconds.getText().equals("")){
-            Toast.makeText(this,"입력값이 없습니다.",Toast.LENGTH_SHORT).show();
+
+        if (editTextEnteredSeconds.getText().toString().equals("")) {
+            Toast.makeText(this, "입력값이 없습니다.", Toast.LENGTH_SHORT).show();
+
+            editTextEnteredSeconds.setText(String.valueOf(fullTime));
             return;
-        }else{
-            if (editTextEnteredSeconds.hasFocus()){
-                editTextEnteredSeconds.clearFocus();
-                InputMethodManager imm = (InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(editTextEnteredSeconds.getWindowToken(),0);
-            }
         }
 
         fullTime = Long.parseLong(editTextEnteredSeconds.getText().toString());
-        halfTime = Math.round(fullTime/2);
+        halfTime = Math.round(fullTime / 2);
+
         ChangeTextSize(fullTime);
+
         btnTimerSwitch.setBackgroundColor(Color.YELLOW);
         btnTimerSwitch.setTextColor(Color.BLACK);
         btnTimerSwitch.setText(String.valueOf(fullTime));
