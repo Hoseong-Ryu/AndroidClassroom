@@ -5,8 +5,8 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "com.example.example6_4_timepickerdatepicker"
-        minSdkVersion 26
+        applicationId "com.example.example6_13_scrollview"
+        minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
