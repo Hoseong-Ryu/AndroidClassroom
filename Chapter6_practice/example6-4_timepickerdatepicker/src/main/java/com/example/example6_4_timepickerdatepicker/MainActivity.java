@@ -77,9 +77,9 @@ public class MainActivity extends AppCompatActivity {
                 tvYear.setText(Integer.toString(selectYear));
                 tvMonth.setText(Integer.toString(selectMonth));
                 tvDay.setText(Integer.toString(selectDay));
-
-                tvHour.setText(Integer.toString(tPicker.getCurrentHour()));
                 tvMinute.setText(Integer.toString(tPicker.getCurrentMinute()));
+                tvHour.setText(Integer.toString(tPicker.getCurrentHour()));
+
                 return false;
             }
         });
