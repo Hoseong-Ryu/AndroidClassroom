@@ -74,6 +74,12 @@ public class MainActivity extends AppCompatActivity {
                 datePicker.setVisibility(View.INVISIBLE);
                 rdoCal.setVisibility(View.INVISIBLE);
                 rdoTime.setVisibility(View.INVISIBLE);
+                tvYear.setText(Integer.toString(selectYear));
+                tvMonth.setText(Integer.toString(selectMonth));
+                tvDay.setText(Integer.toString(selectDay));
+
+                tvHour.setText(Integer.toString(tPicker.getCurrentHour()));
+                tvMinute.setText(Integer.toString(tPicker.getCurrentMinute()));
                 return false;
             }
         });
@@ -86,12 +92,7 @@ public class MainActivity extends AppCompatActivity {
                 selectDay = dayOfMonth;
             }
         });
-        tvYear.setText(Integer.toString(selectYear));
-        tvMonth.setText(Integer.toString(selectMonth));
-        tvDay.setText(Integer.toString(selectDay));
 
-        tvHour.setText(Integer.toString(tPicker.getCurrentHour()));
-        tvMinute.setText(Integer.toString(tPicker.getCurrentMinute()));
     }
 }
 
