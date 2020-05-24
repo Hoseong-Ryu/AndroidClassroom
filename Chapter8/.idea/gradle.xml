@@ -10,10 +10,11 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/Practice8-1" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/app/project8-1" />
             <option value="$PROJECT_DIR$/practice01_internalmemoryfileinputoutput" />
+            <option value="$PROJECT_DIR$/practice02_practice8-1" />
+            <option value="$PROJECT_DIR$/practice03_rawfolder" />
+            <option value="$PROJECT_DIR$/practice04_permissions" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

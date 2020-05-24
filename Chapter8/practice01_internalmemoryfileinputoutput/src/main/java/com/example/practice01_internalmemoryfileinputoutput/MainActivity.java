@@ -10,10 +10,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -87,11 +93,69 @@ public class MainActivity extends AppCompatActivity {
         };
         //endregion
 
-        // 내장 메모리 파일 입출력 처리 2 (OutputStreamWriter, InputStreamReader)
+        //region 내장 메모리 파일 입출력 처리 2 (OutputStreamWriter, InputStreamReader)
+        // 파일에서 바이트 단위로 읽은 자료를 문자 단위로 변환해주는 보조 스트림
+        View.OnClickListener listener2 = new View.OnClickListener(){
 
-        // 내장 메모리 파일 입출력 처리 3 (BufferedWriter, BufferedReader)
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()){
+                    case R.id.btnWrite:
+                        try(OutputStreamWriter outputStreamWriter = new OutputStreamWriter(openFileOutput("myFile.txt", Context.MODE_PRIVATE))) {
+                            outputStreamWriter.write(editText.getText().toString());
+                            Toast.makeText(MainActivity.this, "myFile.txt 작성 완료", Toast.LENGTH_SHORT).show();
+                            editText.setText(null);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        break;
 
-        btnWrite.setOnClickListener(listener1);
-        btnRead.setOnClickListener(listener1);
+                    case R.id.btnRead:
+                        try(InputStreamReader inputStreamReader = new InputStreamReader(openFileInput("myFile.txt"))) {
+                            String str = "";
+                            int temp;
+                            while((temp = inputStreamReader.read()) != -1){
+                                str += (char)temp;
+                            }
+                            textView.setText(str);
+
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        break;
+                }
+            }
+        };
+        //endregion
+
+        //region 내장 메모리 파일 입출력 처리 3 (BufferedWriter, BufferedReader)
+        // 문자를 쓰고 읽을 때 버퍼(배열)을 제공하는 보조스트림(기본사이즈 8,192 바이트 버퍼)
+        View.OnClickListener listener3 = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()){
+                    case R.id.btnWrite:
+                        try(BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(getFileStreamPath("myFile.txt"), false))) {
+                            bufferedWriter.write(editText.getText().toString());
+                            editText.setText(null);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        break;
+
+                    case R.id.btnRead:
+                        try(BufferedReader bufferedReader = new BufferedReader(new FileReader(getFileStreamPath("myFile.txt")))) {
+                            textView.setText(bufferedReader.readLine());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        break;
+                }
+            }
+        };
+        //endregion
+
+        btnWrite.setOnClickListener(listener3);
+        btnRead.setOnClickListener(listener3);
     }
 }
