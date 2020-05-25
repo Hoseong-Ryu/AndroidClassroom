@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                     intent = new Intent(getApplicationContext(), ThirdActivity.class);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(getApplicationContext(),"액티비티를 골라주세요",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"액티비티를 고르세요",Toast.LENGTH_SHORT).show();
                 }
             }
         });
