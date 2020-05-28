@@ -43,14 +43,12 @@ public class ResultActivity extends AppCompatActivity {
         //endregion
 
         // TextView에는 이미지 이름, RatingBar에는 투표 결과를 출력
-        for (int i=0; i<voteResult.length; i++){
-            textViews[i].setText(imageNames[i]);
-            ratingBars[i].setRating(voteResult[i]);
-        }
         int max = 0;
         int max_index = 0;
         max = voteResult[0];
-        for (int i=1; i<voteResult.length; i++){
+        for (int i=0; i<voteResult.length; i++){
+            textViews[i].setText(imageNames[i]);
+            ratingBars[i].setRating(voteResult[i]);
             if(max < voteResult[i]){
                 max = voteResult[i];
                 max_index=i;
