@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Uri uri;
-                Intent intent
+                Intent intent;
                 switch (v.getId()){
                     case R.id.btnDial:
                         uri = Uri.parse("tel: 01012345678");
