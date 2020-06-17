@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Practice_Exam.iml" filepath="$PROJECT_DIR$/../Practice_Exam.iml" group="Practice_Exam" />
+      <module fileurl="file://$PROJECT_DIR$/../app/app.iml" filepath="$PROJECT_DIR$/../app/app.iml" group="Practice_Exam/app" />
+      <module fileurl="file://$PROJECT_DIR$/ex_02.iml" filepath="$PROJECT_DIR$/ex_02.iml" group="Practice_Exam/ex_02" />
+      <module fileurl="file://$PROJECT_DIR$/../myapplication/myapplication.iml" filepath="$PROJECT_DIR$/../myapplication/myapplication.iml" group="Practice_Exam/myapplication" />
+    </modules>
+  </component>
+</project>

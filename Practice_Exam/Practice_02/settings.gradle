@@ -1,0 +1,3 @@
+rootProject.name='Practice_02'
+include ':app'
+include ':intent'

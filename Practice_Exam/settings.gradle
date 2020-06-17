@@ -1,0 +1,4 @@
+rootProject.name='Practice_Exam'
+include ':app'
+include ':ex_02'
+include ':myapplication'

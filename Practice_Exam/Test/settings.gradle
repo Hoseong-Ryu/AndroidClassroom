@@ -1,0 +1,4 @@
+rootProject.name='Test'
+include ':app'
+include ':1p'
+include ':2207'
