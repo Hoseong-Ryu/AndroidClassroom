@@ -1,9 +1,10 @@
 package com.example.ex01_listview;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -16,8 +17,9 @@ public class MainActivity extends AppCompatActivity {
     TextView textView;
     ListView listView;
 
-    String[] dataArr = getStringArrayData();            // 리스트뷰에 표시할 문자열 배열
-    ArrayList<String> arrayList = getArrayListData();   // 리스트뷰에 표시할 ArrayList
+    // ListView에 표시될 데이터 배열
+    String[] dataArr = getStringArray();
+    ArrayList<String> dataList = getStringList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,48 +29,43 @@ public class MainActivity extends AppCompatActivity {
         textView = findViewById(R.id.textView);
         listView = findViewById(R.id.listView);
 
-        //각 항목을 표시할 View, 데이터 가진 ArrayAdapter 객체 생성
-         /*
-         simple_list_item_1 : 문자열 데이터 하나
-         simple_list_item_single_choice : 문자열 데이터 하나 + 라디오 버튼
-         simple_list_item_multiple_choice : 문자열 데이터 하나 + 체크박스 버튼
-         */
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+        // ArrayAdapter에 ListVeiw를 구성할 View와 데이터를 합침.
+        // ArrayAdapter(Context context, int resource, T[] objects)
+        ArrayAdapter<String>  adapter = new ArrayAdapter<String>(
                 this,
-                android.R.layout.simple_list_item_multiple_choice,
-                dataArr);
-//        listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);      //
+                android.R.layout.simple_list_item_single_choice,
+                dataList
+                );
+
+        listView.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
 
         // ListView에 ArrayAdapter 연결
         listView.setAdapter(adapter);
 
-        // ListView의 Item을 클릭하면 발생하는 이벤트 처리
+        // ListView의 각 항목을 클릭했을 때 이벤트 처리
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            // 항목을 클릭하면 호출되는 메소드
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // position : 사용자가 클릭한 항목의 index 번호
-                textView.setText(dataArr[position]);
+//                textView.setText(dataArr[position]);
+                textView.setText(dataList.get(position));
             }
         });
-
     }
 
-    // 스트링 배열을 반환하는 함수
-    private String[] getStringArrayData() {
-        String[] stringArr = new String[100];
-        for(int i=0; i<stringArr.length; i++){
-            stringArr[i] = "배열 데이터" + (i+1);
+    // ListView에 표시될 데이터 배열 생성 메소드
+    private String[] getStringArray() {
+        String[] strArr = new String[100];
+        for(int i=0; i<strArr.length; i++){
+            strArr[i] = "리스트 아이템"+(i+1);
         }
-        return stringArr;
+        return  strArr;
     }
 
-    // ArrayList를 반환하는 함수
-    private ArrayList<String> getArrayListData(){
+    // ListView에 표시될 데이터 ArrayList 생성 메소드
+    private ArrayList<String> getStringList() {
         ArrayList<String> arrayList = new ArrayList<String>();
-        for (int i=0; i<100; i++){
-            arrayList.add("리스트 데이터 "+(i+1));
+        for (int i=1; i<=100; i++){
+            arrayList.add("리스트 아이템 "+i);
         }
         return arrayList;
     }

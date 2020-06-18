@@ -21,8 +21,9 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     TextView selectedListItem;
     ListView listView;
-    Button addBtn,editBtn,delBtn;
+    Button addBtn, editBtn, delBtn;
     int selNum;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,13 +35,15 @@ public class MainActivity extends AppCompatActivity {
         delBtn = findViewById(R.id.delBtn);
 
         //요구사항 1. 초기값은 리스트데이터
-        final ArrayList<String> dataSet = new ArrayList<>();
-        dataSet.add("리스트 데이터1"); dataSet.add("리스트 데이터2");
-        dataSet.add("리스트 데이터3");dataSet.add("리스트 데이터4");
-        dataSet.add("리스트 데이터5");
+        final ArrayList<String> item = new ArrayList<>();
+        item.add("리스트 데이터1");
+        item.add("리스트 데이터2");
+        item.add("리스트 데이터3");
+        item.add("리스트 데이터4");
+        item.add("리스트 데이터5");
 
         //리스트뷰의 초기 출럭(어댑터 생성 및 Listview와 dataset간 연결)
-        final ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_single_choice,dataSet);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_single_choice, item);
         listView.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
         listView.setAdapter(adapter);
 
@@ -49,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dataSet.add("리스트 데이터" + (dataSet.size()+1));
+                item.add("리스트 데이터" + (item.size() + 1));
                 adapter.notifyDataSetChanged(); // 이 메소드가 존재하지 않으면 갱신 x
             }
         });
@@ -60,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 selNum = position;
-                selectedListItem.setText(dataSet.get(position));
+                selectedListItem.setText(item.get(position));
             }
         });
         //editbtn을 눌렀을 때 수정할수 있도록 주요한 코드가 이곳에 구현
@@ -69,19 +72,19 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 AlertDialog.Builder dig = new AlertDialog.Builder(MainActivity.this);
                 dig.setTitle("리스트 아이템 수정");
-                dig.setMessage(dataSet.get(selNum));
+                dig.setMessage(item.get(selNum));
                 dig.setIcon(R.mipmap.ic_launcher_round);
                 //에디트 텍스트를 새로 포함시키기
                 final EditText ed = new EditText(getApplicationContext());
                 dig.setView(ed);
                 //
-                dig.setNegativeButton("취소",null);
+                dig.setNegativeButton("취소", null);
                 dig.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         //1. EditText(ed) 에게서 내용물을 가져와 data 갱신
-                        dataSet.set(selNum,ed.getText().toString());
-                        selectedListItem.setText(dataSet.get(selNum));
+                        item.set(selNum, ed.getText().toString());
+                        selectedListItem.setText(item.get(selNum));
                         adapter.notifyDataSetChanged();
                     }
                 });
@@ -91,9 +94,9 @@ public class MainActivity extends AppCompatActivity {
         delBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dataSet.remove(selNum);
+                item.remove(selNum);
                 adapter.notifyDataSetChanged();
-                selectedListItem.setText(dataSet.get(selNum));
+                selectedListItem.setText(item.get(selNum));
             }
         });
     }

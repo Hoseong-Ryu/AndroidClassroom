@@ -1,2 +1,6 @@
 rootProject.name='twoPractice'
 include ':app'
+include ':prc'
+include ':prc2'
+include ':prc3'
+include ':prc4'
