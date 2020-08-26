@@ -5,8 +5,8 @@
 ### 6-1
 > Chronometer, texttimer, Countdowntimer를 활용한 타이머 만들기
 ### 6-2
-> Datepicker와 Timepicker로 예약 앱 만들기
-> progressbar 사용
-> 버튼을 사용하여 scrollview 학습
-> ViewFlipper를 활용한 갤러리 앱
+> Datepicker와 Timepicker로 예약 앱 만들기 <br>
+> progressbar 사용<br>
+> 버튼을 사용하여 scrollview 학습<br>
+> ViewFlipper를 활용한 갤러리 앱<br>
 > Fragment 
