@@ -1,4 +1,0 @@
-rootProject.name='suhang'
-include ':app'
-include ':myapplication'
-include ':pr2'
