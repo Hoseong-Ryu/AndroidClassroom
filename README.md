@@ -10,20 +10,20 @@
 > Fragment
 ## Chapter7
 > MenuInflater와 MenuItem학습<br>
-> Toast 사용 <br>
-> dialog 사용<br>
+> Toast <br>
+> Dialog <br>
 ## Chapter8
 > java.io를 사용한 파일 InputOutput<br>
 > raw폴더 사용으로 텍스트 가져오기<br>
-> permission으로 권한 받기
+> Permission으로 권한 받기
 ## Chapter10
 > 3개의 Activity만들어 Intent 사용<br>
 > Intent를 사용하여 투표앱 만들기<br>
 > Intent를 사용하여 계산기앱 만들기<br>
 > 암시적 Intent 사용으로 카메라, 구글검색 등
 ## Chapter11
-> listView와 Adapter사용<br>
+> listView와 Adapter<br>
 > 사용자 정의 Adapter만들기<br>
-> spinner사용
+> spinner
 ## Chapter13
-> Thread사용으로 progressbar
+> Thread로 progressbar 채우기
