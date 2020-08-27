@@ -20,10 +20,10 @@
 > 3개의 Activity만들어 Intent 사용<br>
 > Intent를 사용하여 투표앱 만들기<br>
 > Intent를 사용하여 계산기앱 만들기<br>
-> 암시적 Intent 사용
+> 암시적 Intent 사용으로 카메라, 구글검색 등
 ## Chapter11
 > listView와 Adapter사용<br>
-> 사용자 정의 Adapter만들기
+> 사용자 정의 Adapter만들기<br>
 > spinner사용
 ## Chapter13
-> Thread사용으로 progressbar 
+> Thread사용으로 progressbar
